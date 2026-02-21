@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="reaction.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <title>Just Explore</title>
+</head>
+<body>
+     <div class="container">
+        <h2>What do you think about us?</h2>
+
+        <button class="btn" onclick="showResponse('Let’s see where it goes 🙂')">
+            Let’s see where it goes 🙂
+        </button>
+
+        <button class="btn" onclick="showResponse('Just friends for now 🙂')">
+            Just friends for now 🙂
+        </button>
+
+        <button class="btn" onclick="showResponse('I need some time 🙂')">
+            I need some time 🙂
+        </button>
+
+        <button class="btn" onclick="showResponse('I don’t know yet 🙂')">
+            I don’t know yet 🙂
+        </button>
+
+        <div id="response"></div>
+
+        <button class="btn next-btn" id="nextButton" onclick="goNext()">
+            Continue
+        </button>
+    </div>
+
+     <script>
+     // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDGeTdBKJ0BxpJ0EfmLtCuPqhgPkewaLcw",
+  authDomain: "private-data-d4658.firebaseapp.com",
+  projectId: "private-data-d4658",
+  storageBucket: "private-data-d4658.firebasestorage.app",
+  messagingSenderId: "219684465521",
+  appId: "1:219684465521:web:d497cab3bd73dae8a0e4d0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+        function showResponse(choice) {
+            let message = "";
+
+            if (choice.includes("Let’s see")) {
+                message = "That makes me happy. No rush. Let’s just be real.";
+            } else if (choice.includes("Just friends")) {
+                message = "I respect that. What matters is comfort and honesty.";
+            } else if (choice.includes("time")) {
+                message = "Take all the time you need. No pressure from me.";
+            } else {
+                message = "That’s okay. Sometimes feelings take time to understand.";
+            }
+
+            document.getElementById("response").innerText = message;
+            document.getElementById("nextButton").style.display = "block";
+        }
+
+        function goNext() {
+            window.location.href = "wishlist.html";
+        }
+    </script>
+</body>
+</html>

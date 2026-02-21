@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="index.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Access</title>
+</head>
+<body>
+     <div class="disclaimer">
+        <h1>⚠ PRIVATE DISCLAIMER ⚠</h1>
+        <p>
+            This website is made only for Snehal.   
+        </p>
+        <p>
+            Please view it in private. 
+            Keep the volume low. <br>
+              Continue at your own risk.  
+        </p>
+       
+        <p>
+            Enter the password :
+        </p>
+        <input type="text" id="password" placeholder="Enter your name">
+        <div class="error" id="errorMsg">Access Denied.</div>
+<div class="success" id="successMsg">AUTHORIZED ✓</div>
+    </div>
+
+   <script>
+    const inputField = document.getElementById("password");
+    const errorMsg = document.getElementById("errorMsg");
+    const successMsg = document.getElementById("successMsg");
+
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkPassword();
+        }
+    });
+
+    function checkPassword() {
+        const input = inputField.value.trim();
+
+        if (input.toLowerCase() === "snehal") {
+            errorMsg.style.display = "none";
+            successMsg.style.display = "block";
+            inputField.style.borderColor = "#00ff00";
+
+            setTimeout(function() {
+                window.location.href = "landing.html";
+            }, 1000);
+
+        } else {
+            errorMsg.style.display = "block";
+            successMsg.style.display = "none";
+            inputField.classList.add("shake");
+
+            setTimeout(function() {
+                inputField.classList.remove("shake");
+            }, 400);
+        }
+    }
+</script>
+
+</body>
+</html>

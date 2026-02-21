@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="choice.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <title>Your Choice</title>
+</head>
+<body>
+     <div class="container">
+        <h2>So... what do you want to do?</h2>
+
+        <button class="btn" onclick="goConfession()">💌 Know Why I Made This</button>
+        <button class="btn" onclick="goReaction()">🤍 Just Explore</button>
+        <button class="btn" onclick="goGuess()">😄 Or You Want To Guess?</button>
+    </div>
+
+     <script>
+        function goConfession() {
+            window.location.href = "confession.html";
+        }
+
+        function goReaction() {
+            window.location.href = "reaction.html";
+        }
+
+          function goGuess() {
+        window.location.href = "guess.html";
+    }
+    </script>
+
+</body>
+</html>
