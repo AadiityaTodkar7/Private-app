@@ -4,73 +4,54 @@
     <meta charset="UTF-8">
     <link href="reaction.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
     <title>Just Explore</title>
 </head>
 <body>
-     <div class="container">
+    <div class="container">
         <h2>What do you think about us?</h2>
 
-      <button class="btn" data-choice="Let’s see where it goes 🙂">
-    Let’s see where it goes 🙂
-</button>
+        <button class="btn" data-choice="Let’s see where it goes 🙂">Let’s see where it goes 🙂</button>
+        <button class="btn" data-choice="Just friends for now 🙂">Just friends for now 🙂</button>
+        <button class="btn" data-choice="I need some time 🙂">I need some time 🙂</button>
+        <button class="btn" data-choice="I don’t know yet 🙂">I don’t know yet 🙂</button>
 
-<button class="btn" data-choice="Just friends for now 🙂">
-    Just friends for now 🙂
-</button>
-
-<button class="btn" data-choice="I need some time 🙂">
-    I need some time 🙂
-</button>
-
-<button class="btn" data-choice="I don’t know yet 🙂">
-    I don’t know yet 🙂
-</button>
         <div id="response"></div>
 
-        <button class="btn next-btn" id="nextButton" onclick="goNext()">
-            Continue
-        </button>
+        <button class="btn next-btn" id="nextButton" style="display:none;">Continue</button>
     </div>
 
-     <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    <script>
+        const buttons = document.querySelectorAll(".btn");
+        const responseDiv = document.getElementById("response");
+        const nextButton = document.getElementById("nextButton");
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDGeTdBKJ0BxpJ0EfmLtCuPqhgPkewaLcw",
-  authDomain: "private-data-d4658.firebaseapp.com",
-  projectId: "private-data-d4658",
-  storageBucket: "private-data-d4658.firebasestorage.app",
-  messagingSenderId: "219684465521",
-  appId: "1:219684465521:web:d497cab3bd73dae8a0e4d0"
-};
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                const choice = this.getAttribute("data-choice");
+                let message = "";
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+                if (choice.includes("Let’s see")) {
+                    message = "That makes me happy. No rush. Let’s just be real.";
+                } else if (choice.includes("Just friends")) {
+                    message = "I respect that. What matters is comfort and honesty.";
+                } else if (choice.includes("time")) {
+                    message = "Take all the time you need. No pressure from me.";
+                } else {
+                    message = "That’s okay. Sometimes feelings take time to understand.";
+                }
 
-        let message = "";
+                responseDiv.innerText = message;
+                nextButton.style.display = "block";
+            });
+        });
 
-        if (choice.includes("Let’s see")) {
-            message = "That makes me happy. No rush. Let’s just be real.";
-        } else if (choice.includes("Just friends")) {
-            message = "I respect that. What matters is comfort and honesty.";
-        } else if (choice.includes("time")) {
-            message = "Take all the time you need. No pressure from me.";
-        } else {
-            message = "That’s okay. Sometimes feelings take time to understand.";
-        }
-
-        responseDiv.innerText = message;
-        nextButton.style.display = "block";
-   
-
-
-nextButton.addEventListener("click", function() {
-    window.location.href = "wishlist.html";
-});
-</script>
+        nextButton.addEventListener("click", function() {
+            // Go to wishlist page
+            window.location.href = "wishlist.html";
+        });
+    </script>
 </body>
 </html>
